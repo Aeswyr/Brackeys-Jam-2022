@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 773584731704579758}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Level_Default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 3826608200219886302}
   - component: {fileID: 6054134958077943897}
   - component: {fileID: 5160290966446768321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collidable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,9 +185,9 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 278cee11c790f394bbe16455965977ca, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -201,7 +201,7 @@ CompositeCollider2D:
   m_GameObject: {fileID: 1066588690065648781}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 278cee11c790f394bbe16455965977ca, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1165605670246461846}
   - component: {fileID: 1814165699302099550}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 7563616842112762969}
   - component: {fileID: 4266962618864995875}
   - component: {fileID: 8568906966948382159}
+  - component: {fileID: 4233605268724193332}
   - component: {fileID: 5259848785391525900}
   - component: {fileID: 4857704775683079435}
-  - component: {fileID: 4233605268724193332}
+  - component: {fileID: 4854379218601930489}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -132,11 +133,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 16
-  m_Material: {fileID: 0}
+  m_GravityScale: 13
+  m_Material: {fileID: 6200000, guid: 278cee11c790f394bbe16455965977ca, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &4266962618864995875
 MonoBehaviour:
@@ -212,6 +213,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e77c4631253ff84aa7acea37e1e6ad0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4233605268724193332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866953452517631601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a325417bb6166449c0787c775e1bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorDetectDistance: 1
+  floorDetectOffset: {x: 0, y: -1.5}
+  footOffset: {x: 0.75, y: 0}
+  floorDetectMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &5259848785391525900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,10 +243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6887d468b9a59674b9713d96fa56fabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 16
   input: {fileID: 8568906966948382159}
   jump: {fileID: 4857704775683079435}
   rbody: {fileID: 7563616842112762969}
+  ground: {fileID: 4233605268724193332}
+  move: {fileID: 4854379218601930489}
 --- !u!114 &4857704775683079435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +297,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4233605268724193332
+--- !u!114 &4854379218601930489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,12 +306,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 4866953452517631601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a325417bb6166449c0787c775e1bc2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ae669a983e7d5e468f1dafd6ee01688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorDetectDistance: 1
-  floorDetectOffset: {x: 0, y: 0}
-  footOffset: {x: 0, y: 0}
-  floorDetectMask:
+  speed: 16
+  rbody: {fileID: 7563616842112762969}
+  accelerationCurve:
     serializedVersion: 2
-    m_Bits: 0
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 6.2620196
+      outSlope: 6.2620196
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.03642384
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  accelerationTime: 0.5
+  decelerationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -5.911697
+      outSlope: -5.911697
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04304636
+    - serializedVersion: 3
+      time: 0.5
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  decelerationTime: 0.5

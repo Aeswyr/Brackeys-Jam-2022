@@ -10,7 +10,10 @@ public class InputHandler : MonoBehaviour
         get;
         private set;
     }
-
+    private ButtonState m_move;
+    public ButtonState move {
+        get{return m_move;}
+    }
     private ButtonState m_jump;
     public ButtonState jump {
         get{return m_jump;}
@@ -52,6 +55,7 @@ public class InputHandler : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        this.m_move.Reset(frameCount);
         this.m_jump.Reset(frameCount);
         this.m_primary.Reset(frameCount);
         this.m_skill1.Reset(frameCount);
@@ -65,6 +69,7 @@ public class InputHandler : MonoBehaviour
 
     public void Move(InputAction.CallbackContext ctx) {
         this.dir = ctx.ReadValue<float>();
+        this.m_move.Set(ctx,frameCount);
     }
 
     public void Jump(InputAction.CallbackContext ctx) {
