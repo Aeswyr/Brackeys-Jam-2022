@@ -14,6 +14,7 @@ public class MovementHandler : MonoBehaviour
     [SerializeField] private float decelerationTime;
     private float timestamp;
     private float dir;
+    private float decelSpeed;
     bool moving = false;
     // Update is called once per frame
     void FixedUpdate()
@@ -22,7 +23,7 @@ public class MovementHandler : MonoBehaviour
             if (moving)
                 rbody.velocity = new Vector2(speed * dir * accelerationCurve.Evaluate(Time.time - timestamp + accelerationTime), rbody.velocity.y);
             else
-                rbody.velocity = new Vector2(speed * dir * decelerationCurve.Evaluate(Time.time - timestamp + decelerationTime), rbody.velocity.y);
+                rbody.velocity = new Vector2(decelSpeed * dir * decelerationCurve.Evaluate(Time.time - timestamp + decelerationTime), rbody.velocity.y);
         } else {
             if (moving)
                 rbody.velocity = new Vector2(speed * dir, rbody.velocity.y);
@@ -32,6 +33,9 @@ public class MovementHandler : MonoBehaviour
     public void StartDeceleration() {
         moving = false;
         timestamp = Time.time + decelerationTime;
+        decelSpeed = speed;
+        if (Mathf.Abs(rbody.velocity.x) < decelSpeed)
+            decelSpeed = Mathf.Abs(rbody.velocity.x);
     }
 
     public void StartAcceleration(float dir) {
