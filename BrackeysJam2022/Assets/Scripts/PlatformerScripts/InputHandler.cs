@@ -9,6 +9,19 @@ public class InputHandler : Singleton<InputHandler>
         get;
         private set;
     }
+    public Vector2 mousePos {
+        get;
+        private set;
+    }
+
+    public Vector2 mouseDelta {
+        get;
+        private set;
+    }
+    private ButtonState m_mouseLeft;
+    public ButtonState mouseLeft {
+        get{return m_mouseLeft;}
+    }
     private ButtonState m_move;
     public ButtonState move {
         get{return m_move;}
@@ -39,6 +52,18 @@ public class InputHandler : Singleton<InputHandler>
         this.m_interact.Reset();
         this.m_menu.Reset();
         this.m_arrow.Reset();
+    }
+
+    public void PointerPos(InputAction.CallbackContext ctx) {
+        this.mousePos = ctx.ReadValue<Vector2>();
+    }
+
+    public void PointerDelta(InputAction.CallbackContext ctx) {
+        this.mouseDelta = ctx.ReadValue<Vector2>();
+    }
+
+    public void MouseLeft(InputAction.CallbackContext ctx) {
+        this.m_mouseLeft.Set(ctx);
     }
 
     public void Move(InputAction.CallbackContext ctx) {
