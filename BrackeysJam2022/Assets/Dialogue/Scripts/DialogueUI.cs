@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class DialogueUI : MonoBehaviour
 {
     [SerializeField] private TMP_Text textLabel;
+    [SerializeField] private TMP_Text nameLabel;
+    [SerializeField] private TMP_Text nameSpacing;
+    [SerializeField] private Image speakerImage;
 
     [SerializeField] private GameObject dialogueParent;
     [SerializeField] private Animator anim;
@@ -90,6 +93,12 @@ public class DialogueUI : MonoBehaviour
         {
             //Set speaker labels + icon
             CharacterObject newSpeaker = dialogueObject.Characters[i];
+            if (newSpeaker != null)
+            {
+                nameLabel.text = newSpeaker.CharacterName;
+                nameSpacing.text = newSpeaker.CharacterName;
+                speakerImage.sprite = newSpeaker.PortraitSprite;
+            }
 
             //show text
             string dialogue = dialogueObject.GetDialogue()[i];
@@ -136,7 +145,7 @@ public class DialogueUI : MonoBehaviour
         {
             yield return null;
 
-            if (InputHandler.Instance.interact.pressed)
+            if (DialogueInputHandler.Instance.InteractPressedDown())
             {
                 typewriterEffect.Stop();
             }

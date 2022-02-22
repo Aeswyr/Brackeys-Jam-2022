@@ -12,7 +12,7 @@ public class HeroDialogueInteract : MonoBehaviour
     public IInteractable Interactable { get; set; }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!dialogueUI.isOpen)
         {
