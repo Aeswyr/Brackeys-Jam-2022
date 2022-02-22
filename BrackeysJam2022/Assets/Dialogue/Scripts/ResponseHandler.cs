@@ -36,7 +36,7 @@ public class ResponseHandler : MonoBehaviour
             return;
 
         //Press Down
-        if (Input.GetKeyDown(KeyCode.S))
+        if ((InputHandler.Instance.move.pressed) && (InputHandler.Instance.dir.y < 0))
         {
             responseIndex++;
             if (responseIndex > (responseObjects.Length - 1))
@@ -45,7 +45,7 @@ public class ResponseHandler : MonoBehaviour
         }
 
         //Press up
-        if (Input.GetKeyDown(KeyCode.W))
+        if ((InputHandler.Instance.move.pressed) && (InputHandler.Instance.dir.y > 0))
         {
             responseIndex--;
             if (responseIndex < 0)
@@ -54,7 +54,7 @@ public class ResponseHandler : MonoBehaviour
         }
 
         //Press Space
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (InputHandler.Instance.interact.pressed)
             OnPickedResponse(responseArray[responseIndex], responseIndex);
     }
 
