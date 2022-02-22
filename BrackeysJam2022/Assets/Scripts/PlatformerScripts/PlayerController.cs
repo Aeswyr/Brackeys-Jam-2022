@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
         if (input.jump.pressed && grounded) {
             jump.StartJump();
+            AudioManager.Instance.Play();
         }
     }
 }
