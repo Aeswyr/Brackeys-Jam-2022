@@ -64,7 +64,7 @@ public class InputHandler : Singleton<InputHandler>
     }
 
     public struct ButtonState {
-        private long frame;
+        //private long frame;
         private bool firstFrame;
         public bool down {
             get;
@@ -82,13 +82,13 @@ public class InputHandler : Singleton<InputHandler>
         }
 
         public void Set(InputAction.CallbackContext ctx, long frame) {
-            this.frame = frame;
+            //this.frame = frame;
             down = !ctx.canceled;             
             firstFrame = true;
         }
         public void Reset(long frame) {
-            if (frame != this.frame)
-                firstFrame = false;
+            //if (frame != this.frame)
+            firstFrame = false;
         }
     }
 }
