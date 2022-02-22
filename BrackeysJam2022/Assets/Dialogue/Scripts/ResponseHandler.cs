@@ -30,7 +30,7 @@ public class ResponseHandler : MonoBehaviour
         this.responseEvents = responseEvents;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (responsesEnabled == false)
             return;

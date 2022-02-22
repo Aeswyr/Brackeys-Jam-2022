@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class InputHandler : Singleton<InputHandler>
 {
-    long frameCount;
     public Vector2 dir {
         get;
         private set;
@@ -35,36 +34,34 @@ public class InputHandler : Singleton<InputHandler>
     }
 
     private void FixedUpdate() {
-        this.m_move.Reset(frameCount);
-        this.m_jump.Reset(frameCount);
-        this.m_interact.Reset(frameCount);
-        this.m_menu.Reset(frameCount);
-        this.m_arrow.Reset(frameCount);
-        frameCount++;
+        this.m_move.Reset();
+        this.m_jump.Reset();
+        this.m_interact.Reset();
+        this.m_menu.Reset();
+        this.m_arrow.Reset();
     }
 
     public void Move(InputAction.CallbackContext ctx) {
         this.dir = ctx.ReadValue<Vector2>();
-        this.m_move.Set(ctx,frameCount);
+        this.m_move.Set(ctx);
     }
 
     public void Jump(InputAction.CallbackContext ctx) {
-        this.m_jump.Set(ctx, frameCount);
+        this.m_jump.Set(ctx);
     }
     public void Interact(InputAction.CallbackContext ctx) {
-        this.m_interact.Set(ctx, frameCount);
+        this.m_interact.Set(ctx);
     }
 
     public void Menu(InputAction.CallbackContext ctx) {
-        this.m_menu.Set(ctx, frameCount);
+        this.m_menu.Set(ctx);
     }
 
     public void Arrow(InputAction.CallbackContext ctx) {
-        this.m_arrow.Set(ctx, frameCount);
+        this.m_arrow.Set(ctx);
     }
 
     public struct ButtonState {
-        //private long frame;
         private bool firstFrame;
         public bool down {
             get;
@@ -81,13 +78,11 @@ public class InputHandler : Singleton<InputHandler>
             }
         }
 
-        public void Set(InputAction.CallbackContext ctx, long frame) {
-            //this.frame = frame;
+        public void Set(InputAction.CallbackContext ctx) {
             down = !ctx.canceled;             
             firstFrame = true;
         }
-        public void Reset(long frame) {
-            //if (frame != this.frame)
+        public void Reset() {
             firstFrame = false;
         }
     }

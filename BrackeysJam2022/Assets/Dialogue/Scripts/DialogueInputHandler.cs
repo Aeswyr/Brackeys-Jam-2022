@@ -4,23 +4,18 @@ using UnityEngine;
 
 public class DialogueInputHandler : Singleton<DialogueInputHandler>
 {
-    private bool interactPressedDown;
+    private bool unused = true;
 
     private void FixedUpdate()
     {
-        interactPressedDown = false;
-
-        if(InputHandler.Instance.interact.pressed)
-        {
-            interactPressedDown = true;
-        }
+        unused = true;
     }
 
     public bool InteractPressedDown()
     {
-        if(interactPressedDown)
+        if(unused && InputHandler.Instance.interact.pressed)
         {
-            interactPressedDown = false;
+            unused = false;
             return true;
         }
 
