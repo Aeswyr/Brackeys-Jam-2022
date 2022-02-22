@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueInputHandler : MonoBehaviour
+public class DialogueInputHandler : Singleton<DialogueInputHandler>
 {
-    // Start is called before the first frame update
-    void Start()
+    private bool interactPressedDown;
+
+    private void FixedUpdate()
     {
-        
+        interactPressedDown = false;
+
+        if(InputHandler.Instance.interact.pressed)
+        {
+            interactPressedDown = true;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool InteractPressedDown()
     {
-        
+        if(interactPressedDown)
+        {
+            interactPressedDown = false;
+            return true;
+        }
+
+        return false;
     }
 }

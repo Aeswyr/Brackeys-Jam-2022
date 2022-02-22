@@ -54,7 +54,7 @@ public class ResponseHandler : MonoBehaviour
         }
 
         //Press Space
-        if (InputHandler.Instance.interact.pressed)
+        if (DialogueInputHandler.Instance.InteractPressedDown())
             OnPickedResponse(responseArray[responseIndex], responseIndex);
     }
 

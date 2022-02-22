@@ -102,7 +102,7 @@ public class DialogueUI : MonoBehaviour
 
             //Wait for input to show next slide
             yield return null;
-            yield return new WaitUntil(() => InputHandler.Instance.interact.pressed);
+            yield return new WaitUntil(() => DialogueInputHandler.Instance.InteractPressedDown());
 
             //Handle Dialogue Events if they exist
             if ((dialogueEvents != null) && (dialogueEvents.Length > 0) && (i < dialogueEvents.Length))
