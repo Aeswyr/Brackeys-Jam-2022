@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2010482813
+    locked: 0
+  - name: BackgrounDecal
+    uniqueID: 1518317707
+    locked: 0
+  - name: World
+    uniqueID: 4006307203
+    locked: 0
+  - name: Entity
+    uniqueID: 1916861157
+    locked: 0
+  - name: Decal
+    uniqueID: 2356823871
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
