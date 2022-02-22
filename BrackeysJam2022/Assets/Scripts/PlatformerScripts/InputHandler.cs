@@ -29,11 +29,17 @@ public class InputHandler : Singleton<InputHandler>
         get {return m_menu;}
     }
 
+    private ButtonState m_arrow;
+    public ButtonState arrow {
+        get{return m_arrow;}
+    }
+
     private void FixedUpdate() {
         this.m_move.Reset(frameCount);
         this.m_jump.Reset(frameCount);
         this.m_interact.Reset(frameCount);
         this.m_menu.Reset(frameCount);
+        this.m_arrow.Reset(frameCount);
         frameCount++;
     }
 
@@ -51,6 +57,10 @@ public class InputHandler : Singleton<InputHandler>
 
     public void Menu(InputAction.CallbackContext ctx) {
         this.m_menu.Set(ctx, frameCount);
+    }
+
+    public void Arrow(InputAction.CallbackContext ctx) {
+        this.m_arrow.Set(ctx, frameCount);
     }
 
     public struct ButtonState {

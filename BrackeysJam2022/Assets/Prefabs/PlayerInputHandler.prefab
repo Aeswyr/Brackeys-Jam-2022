@@ -122,6 +122,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 46ad1156-fc04-4cc7-a6c7-f912813cf907
     m_ActionName: PlatformerControls/Menu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -2392744849464382234}
+        m_TargetAssemblyTypeName: InputHandler, Assembly-CSharp
+        m_MethodName: Arrow
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 06dceed8-e2cc-4f71-823d-9db9dde81460
+    m_ActionName: PlatformerControls/Arrow[/Keyboard/f]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: PlatformerControls

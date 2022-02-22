@@ -27,5 +27,9 @@ public class PlayerController : MonoBehaviour
             jump.StartJump();
             AudioManager.Instance.Play();
         }
+
+        if (InputHandler.Instance.arrow.pressed) {
+            Debug.Log("pew");
+        }
     }
 }
