@@ -18,9 +18,9 @@ public class PlayerController : MonoBehaviour
         if (InputHandler.Instance.move.released)
             move.StartDeceleration();
         if (InputHandler.Instance.move.pressed)
-            move.StartAcceleration(InputHandler.Instance.dir);
-        if (InputHandler.Instance.dir != 0) {
-            move.UpdateMovement(InputHandler.Instance.dir);
+            move.StartAcceleration(InputHandler.Instance.dir.x);
+        if (InputHandler.Instance.dir.x != 0) {
+            move.UpdateMovement(InputHandler.Instance.dir.x);
         }
 
         if (InputHandler.Instance.jump.pressed && grounded) {

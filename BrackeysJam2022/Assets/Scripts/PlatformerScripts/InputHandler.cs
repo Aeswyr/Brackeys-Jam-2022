@@ -6,7 +6,7 @@ using UnityEngine;
 public class InputHandler : Singleton<InputHandler>
 {
     long frameCount;
-    public float dir {
+    public Vector2 dir {
         get;
         private set;
     }
@@ -38,7 +38,7 @@ public class InputHandler : Singleton<InputHandler>
     }
 
     public void Move(InputAction.CallbackContext ctx) {
-        this.dir = ctx.ReadValue<float>();
+        this.dir = ctx.ReadValue<Vector2>();
         this.m_move.Set(ctx,frameCount);
     }
 
