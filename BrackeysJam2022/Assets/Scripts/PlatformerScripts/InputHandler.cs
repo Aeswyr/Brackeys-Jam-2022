@@ -52,6 +52,7 @@ public class InputHandler : Singleton<InputHandler>
         this.m_interact.Reset();
         this.m_menu.Reset();
         this.m_arrow.Reset();
+        this.m_mouseLeft.Reset();
     }
 
     public void PointerPos(InputAction.CallbackContext ctx) {

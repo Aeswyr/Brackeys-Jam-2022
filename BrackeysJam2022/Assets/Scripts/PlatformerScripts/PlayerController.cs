@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D rbody;
     [SerializeField] private GroundedCheck ground;
     [SerializeField] private MovementHandler move;
+    [SerializeField] private GameObject interactPrompt;
+    [SerializeField] private PlayerInteractBox interactBox;
     private bool grounded;
 
     // Update is called once per frame
@@ -28,8 +30,17 @@ public class PlayerController : MonoBehaviour
             AudioManager.Instance.Play();
         }
 
+        if (InputHandler.Instance.interact.pressed) {
+            interactBox.TryInteract();
+        }
+
         if (InputHandler.Instance.arrow.pressed) {
             Debug.Log("pew");
+            GameMaster.Instance.GotoLevel(0);
         }
+    }
+
+    public void SetInteractPrompt(bool prompt) {
+        interactPrompt.SetActive(prompt);
     }
 }
