@@ -25,6 +25,8 @@ public class PlayerDashHandler : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
+    Vector2 dir;
+
     private float gravScale;
 
     private void FixedUpdate()
@@ -49,8 +51,11 @@ public class PlayerDashHandler : MonoBehaviour
                         break;
                     }
 
+                    //Set velocity
+                    rb.velocity = dir * dashSpeed;
+
                     //Check if afterimage should be spawned
-                    if(Time.time >= nextAfterimageTime)
+                    if (Time.time >= nextAfterimageTime)
                     {
                         SpawnAfterImage();
                     }
@@ -71,24 +76,27 @@ public class PlayerDashHandler : MonoBehaviour
 
     private void StartDash()
     {
+        //Get input
+        Vector2 directionHeld = InputHandler.Instance.dir;
+        directionHeld = directionHeld.normalized;
+
+        if (directionHeld.magnitude <= 0.05f)
+            return; //cancel dash
+
+        dir = directionHeld;
+
         //No movin
         playerController.SetInputLock(true);
 
         //No gravy
         gravScale = rb.gravityScale;
         rb.gravityScale = 0;
-        rb.velocity = Vector2.zero;
 
         //Set timer and state
         dashState = dashStateEnum.dashing;
         dashEndTime = Time.time + dashDurationSecs;
 
-        //Set speed
-        Vector2 directionHeld = InputHandler.Instance.dir;
-        directionHeld = directionHeld.normalized;
-
-        Debug.Log("Dir: " + directionHeld);
-
+        //Set velocity
         rb.velocity = directionHeld * dashSpeed;
 
         //Spawn first afterimage + afterimage timer
