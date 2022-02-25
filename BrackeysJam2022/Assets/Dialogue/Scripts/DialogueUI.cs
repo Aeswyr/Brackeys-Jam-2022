@@ -61,6 +61,9 @@ public class DialogueUI : MonoBehaviour
 
         dialogueParent.SetActive(true);
 
+        //Disable player movement
+        GameMaster.Instance.SetInputLock(true);
+
         if (anim.GetCurrentAnimatorClipInfo(0)[0].clip.name != "FadeIn")
             anim.SetTrigger("FadeIn");
 
@@ -161,6 +164,9 @@ public class DialogueUI : MonoBehaviour
         textLabel.text = string.Empty;
 
         isOpen = false;
+
+        //Enable player movement again
+        GameMaster.Instance.SetInputLock(false);
     }
 
     public void DisableDialogueBox()

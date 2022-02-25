@@ -62,4 +62,6 @@ public class PlayerController : MonoBehaviour
             move.CancelMovement();
         }
     }
+
+    public bool Grounded => grounded;
 }
