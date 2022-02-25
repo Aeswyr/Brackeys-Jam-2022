@@ -38,9 +38,8 @@ public class PlayerController : MonoBehaviour
                 interactBox.TryInteract();
             }
 
-            if (InputHandler.Instance.arrow.pressed) {
+            if (InputHandler.Instance.special.pressed) {
                 Debug.Log("pew");
-                GameMaster.Instance.GotoLevel(0);
             }
         }
 

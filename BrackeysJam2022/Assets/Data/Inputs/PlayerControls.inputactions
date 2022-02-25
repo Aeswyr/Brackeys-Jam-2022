@@ -42,7 +42,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Arrow",
+                    "name": "Special",
                     "type": "Button",
                     "id": "06dceed8-e2cc-4f71-823d-9db9dde81460",
                     "expectedControlType": "Button",
@@ -72,6 +72,15 @@
                     "name": "MouseLeft",
                     "type": "Button",
                     "id": "75f103c6-bd52-4f91-9c17-289c15ea639b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Bomb",
+                    "type": "Button",
+                    "id": "4346f2e2-e62b-437a-aa0d-8597e52a1d9d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -170,11 +179,11 @@
                 {
                     "name": "",
                     "id": "ac1210dc-6f1a-4a03-b630-272f8f7c7b11",
-                    "path": "<Keyboard>/f",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Arrow",
+                    "action": "Special",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -208,6 +217,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MouseLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1060944f-c98a-4574-89f6-1104d56453c8",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bomb",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

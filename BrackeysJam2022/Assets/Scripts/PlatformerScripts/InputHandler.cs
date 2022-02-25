@@ -41,9 +41,14 @@ public class InputHandler : Singleton<InputHandler>
         get {return m_menu;}
     }
 
-    private ButtonState m_arrow;
-    public ButtonState arrow {
-        get{return m_arrow;}
+    private ButtonState m_special;
+    public ButtonState special {
+        get{return m_special;}
+    }
+
+    private ButtonState m_bomb;
+    public ButtonState bomb {
+        get{return m_bomb;}
     }
 
     private void FixedUpdate() {
@@ -51,7 +56,8 @@ public class InputHandler : Singleton<InputHandler>
         this.m_jump.Reset();
         this.m_interact.Reset();
         this.m_menu.Reset();
-        this.m_arrow.Reset();
+        this.m_special.Reset();
+        this.m_bomb.Reset();
         this.m_mouseLeft.Reset();
     }
 
@@ -83,8 +89,12 @@ public class InputHandler : Singleton<InputHandler>
         this.m_menu.Set(ctx);
     }
 
-    public void Arrow(InputAction.CallbackContext ctx) {
-        this.m_arrow.Set(ctx);
+    public void Special(InputAction.CallbackContext ctx) {
+        this.m_special.Set(ctx);
+    }
+
+    public void Bomb(InputAction.CallbackContext ctx) {
+        this.m_bomb.Set(ctx);
     }
 
     public struct ButtonState {
