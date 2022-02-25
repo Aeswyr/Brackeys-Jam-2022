@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
         if (state) {
             rbody.velocity = Vector2.zero;
             move.CancelMovement();
+            jump.ForceLanding();
         }
     }
 
