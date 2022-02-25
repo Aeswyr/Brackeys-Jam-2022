@@ -48,6 +48,12 @@ public class MovementHandler : MonoBehaviour
         moving = true;
     }
 
+    public void CancelMovement() {
+        decelSpeed = 0;
+        moving = false;
+        timestamp = Time.time;
+    }
+
 
     
 

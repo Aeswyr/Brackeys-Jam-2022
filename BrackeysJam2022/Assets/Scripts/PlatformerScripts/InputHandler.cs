@@ -51,6 +51,11 @@ public class InputHandler : Singleton<InputHandler>
         get{return m_bomb;}
     }
 
+    private ButtonState m_walk;
+    public ButtonState walk {
+        get{return m_walk;}
+    }
+
     private void FixedUpdate() {
         this.m_move.Reset();
         this.m_jump.Reset();
@@ -59,6 +64,7 @@ public class InputHandler : Singleton<InputHandler>
         this.m_special.Reset();
         this.m_bomb.Reset();
         this.m_mouseLeft.Reset();
+        this.m_walk.Reset();
     }
 
     public void PointerPos(InputAction.CallbackContext ctx) {
@@ -95,6 +101,10 @@ public class InputHandler : Singleton<InputHandler>
 
     public void Bomb(InputAction.CallbackContext ctx) {
         this.m_bomb.Set(ctx);
+    }
+
+    public void Walk(InputAction.CallbackContext ctx) {
+        this.m_walk.Set(ctx);
     }
 
     public struct ButtonState {

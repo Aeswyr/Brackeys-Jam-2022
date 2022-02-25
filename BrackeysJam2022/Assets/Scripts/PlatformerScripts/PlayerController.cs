@@ -21,12 +21,13 @@ public class PlayerController : MonoBehaviour
 
         // INPUTS
         if (!inputLock) {
-            if (InputHandler.Instance.move.released)
+
+            if (InputHandler.Instance.walk.released)
                 move.StartDeceleration();
-            if (InputHandler.Instance.move.pressed)
-                move.StartAcceleration(InputHandler.Instance.dir.x);
-            if (InputHandler.Instance.dir.x != 0) {
-                move.UpdateMovement(InputHandler.Instance.dir.x);
+            if (InputHandler.Instance.walk.pressed)
+                move.StartAcceleration(InputHandler.Instance.dir.x / Mathf.Abs(InputHandler.Instance.dir.x));
+            if (InputHandler.Instance.walk.down) {
+                move.UpdateMovement(InputHandler.Instance.dir.x / Mathf.Abs(InputHandler.Instance.dir.x));
             }
 
             if (InputHandler.Instance.jump.pressed && grounded) {
@@ -41,6 +42,10 @@ public class PlayerController : MonoBehaviour
             if (InputHandler.Instance.special.pressed) {
                 Debug.Log("pew");
             }
+
+            if (InputHandler.Instance.bomb.pressed) {
+                ResourceUIMaster.Instance.AddBomb();
+            }
         }
 
         // END INPUTS
@@ -54,6 +59,7 @@ public class PlayerController : MonoBehaviour
         inputLock = state;
         if (state) {
             rbody.velocity = Vector2.zero;
+            move.CancelMovement();
         }
     }
 }
