@@ -77,13 +77,18 @@ public class PlayerDashHandler : MonoBehaviour
         //No gravy
         gravScale = rb.gravityScale;
         rb.gravityScale = 0;
+        rb.velocity = Vector2.zero;
 
         //Set timer and state
         dashState = dashStateEnum.dashing;
         dashEndTime = Time.time + dashDurationSecs;
 
         //Set speed
-        Vector2 directionHeld = InputHandler.Instance.dir.normalized;
+        Vector2 directionHeld = InputHandler.Instance.dir;
+        directionHeld = directionHeld.normalized;
+
+        Debug.Log("Dir: " + directionHeld);
+
         rb.velocity = directionHeld * dashSpeed;
 
         //Spawn first afterimage + afterimage timer

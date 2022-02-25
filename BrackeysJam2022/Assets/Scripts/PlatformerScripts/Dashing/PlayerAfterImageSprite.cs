@@ -39,8 +39,6 @@ public class PlayerAfterImageSprite : MonoBehaviour
         {
             float ratio = (Time.time - spawnTime) / duration;
 
-            Debug.Log("ratio: " + ratio);
-
             alpha = 1 - ratio;
             //Debug.Log("alpha: " + alpha);
             color.a = alpha;
