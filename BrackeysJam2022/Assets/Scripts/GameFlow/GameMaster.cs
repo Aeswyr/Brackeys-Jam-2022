@@ -7,6 +7,7 @@ public class GameMaster : Singleton<GameMaster>
     [SerializeField] private PrefabList levelMasterList;
     private LevelController currentLevel;
     private PlayerController player;
+
     void Start() {
         currentLevel = FindObjectOfType<LevelController>();
         player = FindObjectOfType<PlayerController>();
@@ -16,12 +17,16 @@ public class GameMaster : Singleton<GameMaster>
         if (level == null)
             return null;
 
-        Destroy(currentLevel);
+        Destroy(currentLevel.gameObject);
         currentLevel = Instantiate(level).GetComponent<LevelController>();
         return currentLevel;
     }
 
     public PlayerController GetPlayer() {
         return player;
+    }
+
+    public void SetInputLock(bool state) {
+        player.SetInputLock(state);
     }
 }

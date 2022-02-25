@@ -17,6 +17,10 @@ public class PlayerInteractBox : MonoBehaviour
         overlap = null;
     }
 
+    private void OnTriggerStay2D(Collider2D other) {
+        overlap = other;
+    }
+
     public void TryInteract() {
         if (overlap == null)
             return;
