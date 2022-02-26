@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 5259848785391525900}
   - component: {fileID: 4857704775683079435}
   - component: {fileID: 4854379218601930489}
+  - component: {fileID: 8755363219352679014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -259,6 +260,7 @@ MonoBehaviour:
   move: {fileID: 4854379218601930489}
   interactPrompt: {fileID: 4443079543427471314}
   interactBox: {fileID: 1120788585350146566}
+  arrows: {fileID: 8755363219352679014}
 --- !u!114 &4857704775683079435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +374,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   decelerationTime: 0.5
+--- !u!114 &8755363219352679014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4866953452517631601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63a85f87dc698dd42ab612c2734b7dca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 1744600308898461283, guid: fdbadf90cb6d0314497b119968af1fe5, type: 3}
+  speed: 80
 --- !u!1 &4945101535879325551
 GameObject:
   m_ObjectHideFlags: 0

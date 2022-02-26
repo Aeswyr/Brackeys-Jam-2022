@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MovementHandler move;
     [SerializeField] private GameObject interactPrompt;
     [SerializeField] private PlayerInteractBox interactBox;
+    [SerializeField] private ArrowHandler arrows;
     private bool grounded, inputLock = false;
+    private float facing = 1;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -28,6 +30,7 @@ public class PlayerController : MonoBehaviour
                 move.StartAcceleration(InputHandler.Instance.dir.x / Mathf.Abs(InputHandler.Instance.dir.x));
             if (InputHandler.Instance.walk.down) {
                 move.UpdateMovement(InputHandler.Instance.dir.x / Mathf.Abs(InputHandler.Instance.dir.x));
+                facing = InputHandler.Instance.dir.x;
             }
 
             if (InputHandler.Instance.jump.pressed && grounded) {
@@ -40,7 +43,7 @@ public class PlayerController : MonoBehaviour
             }
 
             if (InputHandler.Instance.special.pressed) {
-                Debug.Log("pew");
+                arrows.SpawnArrow(facing);
             }
 
             if (InputHandler.Instance.bomb.pressed) {

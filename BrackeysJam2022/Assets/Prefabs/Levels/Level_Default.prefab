@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exits:
   - {fileID: 5376228617596190568}
+  levelObjects: {fileID: 647869379757432848}
 --- !u!1 &647869379757432848
 GameObject:
   m_ObjectHideFlags: 0

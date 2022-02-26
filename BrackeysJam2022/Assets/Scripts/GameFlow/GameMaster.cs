@@ -29,4 +29,8 @@ public class GameMaster : Singleton<GameMaster>
     public void SetInputLock(bool state) {
         player.SetInputLock(state);
     }
+
+    public LevelController GetCurrentLevel() {
+        return currentLevel;
+    }
 }

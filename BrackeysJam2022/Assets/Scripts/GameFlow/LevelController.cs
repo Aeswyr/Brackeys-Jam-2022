@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour {
     [SerializeField] private LevelExit[] exits;
+    [SerializeField] private GameObject levelObjects;
 
     public LevelExit GetExit(int index) {
         if (index >= exits.Length || index < 0) {
@@ -9,5 +10,9 @@ public class LevelController : MonoBehaviour {
             return null;
         }
         return exits[index];
+    }
+
+    public GameObject GetLevelObjects() {
+        return levelObjects;
     }
 }

@@ -15,8 +15,8 @@ TagManager:
   - World
   - Clickable
   - Interactable
-  - 
-  - 
+  - Hitbox
+  - Hurtbox
   - 
   - 
   - 
