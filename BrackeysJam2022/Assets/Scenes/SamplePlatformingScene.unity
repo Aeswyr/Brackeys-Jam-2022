@@ -8994,7 +8994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashState: 0
-  dashDurationSecs: 0.5
+  dashDurationSecs: 0.25
   dashSpeed: 30
   secondsPerAfterimage: 0.025
   playerController: {fileID: 1887715938}

@@ -47,7 +47,14 @@ public class PlayerDashHandler : MonoBehaviour
                     //Check if dash should end
                     if(Time.time >= dashEndTime)
                     {
-                        EndDash();
+                        EndDash(false);
+                        break;
+                    }
+
+                    //If dashing down and on ground, end dash
+                    if((dir.y < 0) && (playerController.Grounded))
+                    {
+                        EndDash(true);
                         break;
                     }
 
@@ -103,7 +110,7 @@ public class PlayerDashHandler : MonoBehaviour
         SpawnAfterImage();
     }
 
-    private void EndDash()
+    private void EndDash(bool refundDash)
     {
         //Can move again
         playerController.SetInputLock(false);
@@ -112,7 +119,10 @@ public class PlayerDashHandler : MonoBehaviour
         rb.gravityScale = gravScale;
 
         //Set state
-        dashState = dashStateEnum.recharging;
+        if (refundDash)
+            dashState = dashStateEnum.charged;
+        else
+            dashState = dashStateEnum.recharging;
     }
 
     private void SpawnAfterImage()
