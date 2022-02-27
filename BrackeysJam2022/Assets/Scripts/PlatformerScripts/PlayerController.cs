@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
                 arrows.SpawnArrow(facing);
             }
 
-            if (InputHandler.Instance.bomb.pressed) {
+            if (InputHandler.Instance.bomb.pressed && ResourceUIMaster.Instance.UseBomb()) {
                 GameObject obj = Instantiate(bombPrefab, GameMaster.Instance.GetCurrentLevel().GetLevelObjects().transform);
                 obj.transform.position = this.transform.position;
             }

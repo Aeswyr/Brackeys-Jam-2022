@@ -10,9 +10,12 @@ public class ResourceUIMaster : Singleton<ResourceUIMaster>
     [SerializeField] private TextMeshProUGUI bombText;
     [SerializeField] private TextMeshProUGUI keyText;
 
-    public void UseBomb() {
+    public bool UseBomb() {
+        if (bombs < 1)
+            return false;
         bombs--;
         SetBombUI();
+        return true;
     }
     public void AddBomb() {
         bombs++;
@@ -26,9 +29,12 @@ public class ResourceUIMaster : Singleton<ResourceUIMaster>
             bombText.text = bombs.ToString();
     }
 
-    public void UseKey() {
+    public bool UseKey() {
+        if (keys < 1)
+            return true;
         keys--;
         SetKeyUI();
+        return true;
     }
 
     public void AddKey() {
