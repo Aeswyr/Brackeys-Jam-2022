@@ -49,6 +49,7 @@ MonoBehaviour:
   exits:
   - {fileID: 5376228617596190568}
   levelObjects: {fileID: 647869379757432848}
+  collidables: {fileID: 1602302851828197434}
 --- !u!1 &647869379757432848
 GameObject:
   m_ObjectHideFlags: 0

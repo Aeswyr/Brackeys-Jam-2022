@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class LevelController : MonoBehaviour {
     [SerializeField] private LevelExit[] exits;
     [SerializeField] private GameObject levelObjects;
+    [SerializeField] private Tilemap collidables;
 
     public LevelExit GetExit(int index) {
         if (index >= exits.Length || index < 0) {
@@ -14,5 +16,9 @@ public class LevelController : MonoBehaviour {
 
     public GameObject GetLevelObjects() {
         return levelObjects;
+    }
+
+    public Tilemap GetTilemap() {
+        return collidables;
     }
 }

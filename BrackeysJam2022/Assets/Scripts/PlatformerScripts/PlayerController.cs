@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject interactPrompt;
     [SerializeField] private PlayerInteractBox interactBox;
     [SerializeField] private ArrowHandler arrows;
+    [SerializeField] private GameObject bombPrefab;
     private bool grounded, inputLock = false;
     private float facing = 1;
 
@@ -42,12 +43,13 @@ public class PlayerController : MonoBehaviour
                 interactBox.TryInteract();
             }
 
-            if (InputHandler.Instance.special.pressed) {
+            if (InputHandler.Instance.special.pressed && arrows != null) {
                 arrows.SpawnArrow(facing);
             }
 
             if (InputHandler.Instance.bomb.pressed) {
-                ResourceUIMaster.Instance.AddBomb();
+                GameObject obj = Instantiate(bombPrefab, GameMaster.Instance.GetCurrentLevel().GetLevelObjects().transform);
+                obj.transform.position = this.transform.position;
             }
         }
 

@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4857704775683079435}
   - component: {fileID: 4854379218601930489}
   - component: {fileID: 8755363219352679014}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,6 +261,7 @@ MonoBehaviour:
   interactPrompt: {fileID: 4443079543427471314}
   interactBox: {fileID: 1120788585350146566}
   arrows: {fileID: 8755363219352679014}
+  bombPrefab: {fileID: 5573440756615798798, guid: 8711b94f7f1059a448826f18049913f4, type: 3}
 --- !u!114 &4857704775683079435
 MonoBehaviour:
   m_ObjectHideFlags: 0
